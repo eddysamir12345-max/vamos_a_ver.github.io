@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Comunidad Comunicada</title>
+
+<style>
+
+/* ===== RESET ===== */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+color:white;
+overflow-x:hidden;
+}
+
+/* ===== IMAGEN DE FONDO ===== */
+.hero{
+height:100vh;
+background-image:url("fondo.jpg"); /* CAMBIA ESTA IMAGEN */
+background-size:cover;
+background-position:center;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+/* Oscurecer fondo */
+.hero::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+z-index:0;
+}
+
+.hero-content{
+position:relative;
+z-index:1;
+max-width:900px;
+}
+
+/* TITULO */
+.hero h1{
+font-size:4rem;
+margin-bottom:20px;
+}
+
+/* TEXTO */
+.hero p{
+font-size:1.4rem;
+line-height:1.5;
+}
+
+/* ===== HEADER ===== */
+header{
+position:fixed;
+top:0;
+width:100%;
+background:#111;
+padding:15px;
+text-align:center;
+z-index:1000;
+}
+
+/* ===== CAJA DE ETIQUETAS ===== */
+.tags-container{
+position:fixed;
+top:70px;
+width:100%;
+display:flex;
+justify-content:center;
+transition:0.4s;
+z-index:999;
+}
+
+.tags-box{
+background:white;
+color:black;
+padding:15px;
+border-radius:10px;
+box-shadow:0px 4px 15px rgba(0,0,0,0.3);
+width:90%;
+max-width:800px;
+text-align:center;
+}
+
+.tags-title{
+margin-bottom:10px;
+font-weight:bold;
+}
+
+.tags{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:10px;
+}
+
+.tag{
+background:#eee;
+padding:8px 15px;
+border-radius:20px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.tag:hover{
+background:#222;
+color:white;
+}
+
+/* ===== SECCION CONTENIDO ===== */
+.section{
+padding:80px 20px;
+background:#222;
+text-align:center;
+}
+
+.section h2{
+margin-bottom:20px;
+}
+
+/* ===== FOOTER ===== */
+footer{
+background:#111;
+padding:30px;
+text-align:center;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.5rem;
+}
+
+.hero p{
+font-size:1.1rem;
+}
+
+.tags-box{
+width:95%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h3>Comunidad Comunicada</h3>
+</header>
+
+<!-- BUSCADOR VISUAL -->
+<div class="tags-container" id="tagsContainer">
+<div class="tags-box">
+
+<div class="tags-title">
+Seleccione etiquetas
+</div>
+
+<div class="tags">
+<div class="tag">Zapatos</div>
+<div class="tag">Ropa</div>
+<div class="tag">Playa</div>
+<div class="tag">Camisa de Playa</div>
+</div>
+
+</div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+
+<div class="hero-content">
+<h1>Comunidad Comunicada</h1>
+
+<p>
+Una página que pueda usar el pueblo para poder darse a conocer
+en su zona local para así poder apoyarse entre todos.
+</p>
+
+</div>
+
+</section>
+
+<!-- SECCION DEMO -->
+<section class="section">
+<h2>Publicaciones Próximamente</h2>
+<p>Aquí aparecerán los productos y servicios de la comunidad.</p>
+</section>
+
+<footer>
+<p>© 2026 Comunidad Comunicada | Proyecto Comunitario</p>
+</footer>
+
+<script>
+
+/* DESAPARECER CAJA AL HACER SCROLL */
+
+const tags = document.getElementById("tagsContainer");
+
+window.addEventListener("scroll", () => {
+
+if(window.scrollY > 120){
+tags.style.transform = "translateY(-120px)";
+tags.style.opacity = "0";
+}else{
+tags.style.transform = "translateY(0)";
+tags.style.opacity = "1";
+}
+
+});
+
+</script>
+
+</body>
+</html>
